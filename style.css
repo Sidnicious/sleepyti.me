@@ -16,8 +16,6 @@ body {
 	-moz-border-radius: 1em;
 	-webkit-border-radius: 1em;
 	max-width: 40em;
-	min-width: 15em;
-
 }
 ::selection {
 	background: #4D0800; /* Safari */
