@@ -59,7 +59,7 @@ button {
 	-moz-border-radius: 0.25em;
 	padding: 0.25em 0.5em;
 	line-height: 1.25em;
-	margin-top: 0.45em;
+	margin: 0.25em 0;
 }
 #results > li.good {
 	background-color: #007034;
