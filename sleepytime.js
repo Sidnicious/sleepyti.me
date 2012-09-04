@@ -1,5 +1,6 @@
-var FOURTEEN_MIN = 1000 * 60 * 14,
-	NINETY_MIN = 1000 * 60 * 90;
+var FOURTEEN_MIN = 1000 * 60 * 14;
+var NINETY_MIN = 1000 * 60 * 90;
+var results = document.getElementById('results');
 
 function formatTime (date) {
 	var hours = date.getHours(),
@@ -17,17 +18,16 @@ function wakeupTimes (bedtime) {
 }
 
 function updateWakeupTimes(wakeupTimes) {
-	var timeNodes = document.getElementById("results").children;
+	var timeNodes = results.children;
 	for (var time in wakeupTimes) {
 		timeNodes[time].textContent = formatTime(wakeupTimes[time]);
 	}
 }
 
-document.getElementById("sleepNow").addEventListener("click", function(){
-	updateWakeupTimes(wakeupTimes(new Date()));
-	document.body.className = "sleeping";
-}, false);
+function tick(){
+	var now = new Date();
+	updateWakeupTimes(wakeupTimes(now));
+	setTimeout(tick, 60000 - now % 60000);
+}
 
-document.getElementById("back").addEventListener("click", function(){
-	document.body.className = "home";
-}, false);
+tick();
